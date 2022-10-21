@@ -8,7 +8,8 @@ int func (int a)
     return a*func(a-1);
 }
 int fonc (int b, int c)
-{
+{   if (b==c) return 1;
+    if (c==(b-1)) return b;
     int d;
     d=func(b)/(func(c)*func(b-c));
     return d;
