@@ -11,21 +11,33 @@ public:
 
 
 
-    
+    matrix();                                                                        //constructor for matrix
 
-    matrix(int valueROW, int valueCOL);       //constructor for matrix
+    matrix(int valueROW, int valueCOL);                                              //constructor for matrix '2'
 
-    void fini();                             //function for int matrix
+    matrix(int valueROW, int valueCOL, const double* arr);                           //constructor for matrix '3'
+     
+    void fini();                                                                     //function for int matrix
 
-    void fouti();                                         //function for cout matrix
+    void fini(int i, int j);                                                         //function for int matrix '2'
 
-    void funch();                                         //function for umnozhenie matrix on number
+    void fini(int valueROW, int valueCOL, double* arr);                              //function for int matrix '3'
 
-    void func_sum_mat(matrix& f);                                                       //function for sum matrix on matrix
+    void fouti();                                                                    //function for cout matrix
 
-    void func_umn_mat(matrix& q);                                                       //umnoxhenie two matrix
+    void funch();                                                                    //function for umnozhenie matrix on number
 
-    double func_sled_mat(const matrix& d);                                             //sled matrix of formula: ((i*k)+k); i=rows or column 
+    void func_sum_mat(matrix& f);                                                    //function for sum matrix on matrix
+
+    void func_sum_mat(const double* are);                                            //function for sum matrix on mas
+
+    void func_sum_mat(const double* arr, int size);                                  //function for sum matrix on mas '2'
+
+    void func_umn_mat(matrix& q);                                                    //umnoxhenie two matrix
+
+    void func_umn_mat(const double* arr, int size);                                  //umnoxhenie matrix on mas
+
+    double func_sled_mat(const matrix& d);                                           //sled matrix of formula: ((i*k)+k); i=rows or column 
     
     int func_get_elem(int j, int i);
        

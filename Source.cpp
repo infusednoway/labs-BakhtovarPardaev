@@ -9,15 +9,25 @@ int main()
     int c, v;
     cin >> c >> v;
 
+    double* add;
+    add = new double[9] {2,2,2,2,3,4,5,6,1};
+
+        matrix d;
+        
+        matrix e(c, v, add);
+
         matrix a(c, v);
         a.fini();
-        cout << "\n";
+          cout << "\n";
+
         a.fouti();
-        cout << "\n";
+          cout << "\n";
+
         matrix b(c, v);
         b.fini();
         b.fouti();
-        cout<<"\n";
+          cout<<"\n";
+
         a.func_umn_mat(b);
         a.fouti();
         a.funch();
@@ -25,16 +35,21 @@ int main()
         a.func_sum_mat(b);
         a.fouti();
         a.func_umn_mat(b);                     
-        a.fouti();                                      
-        cout<<"sled="<<a.func_sled_mat(a);
-        cout << endl;
-        a.func_get_elem(2, 3);                
-        cout << endl;
-        a.func_get_col();                
-        cout << endl;
-        a.func_get_row();                   
-        cout << endl;
-        cout<<"opredel="<<a.func_det_matrix();
+        a.fouti();     
+          cout << "\n";
+          cout<<"sled="<<a.func_sled_mat(a);
+          cout << endl;
+
+        a.func_get_elem(2, 3);  
+          cout << endl;
+
+        a.func_get_col();   
+          cout << endl;
+
+        a.func_get_row();   
+          cout << endl;
+          cout<<"opredel="<<a.func_det_matrix();
+          cout << "\n\n\n";
     
 
 
