@@ -23,9 +23,15 @@ public:
 
     void fini(int valueROW, int valueCOL, double* arr);                              //function for int matrix '3'
 
-    void fouti();                                                                    //function for cout matrix
+    void fini(int size);                                                             //function for int matrix '4'
+                             
+    double get_elem(int i, int j) const;                                             //vspomogat func for function for cout matrix
+
+    void fouti() const;                                                              //function for cout matrix
 
     void funch();                                                                    //function for umnozhenie matrix on number
+
+    matrix funch(double num);                                                        //function for umnozhenie matrix on number '2'
 
     void func_sum_mat(matrix& f);                                                    //function for sum matrix on matrix
 
@@ -46,6 +52,25 @@ public:
     int func_get_row();
     
     double func_det_matrix();        //for 3x3
+
+    void operator-();
+
+    void operator += (const matrix& matr2);
+    
+    void operator -= (const matrix& matr2);
+
+    void operator*( double num);
+  
+    void operator + (const matrix& matr1); 
+
+    void operator - (const matrix& matr1);
+   
+    void operator*(const matrix& matr1);
+
+    friend std::ostream& operator << (std::ostream& out, matrix& matr);
+   
+    friend std::istream& operator >> (std::istream& in, matrix& matr);
+    
  
     ~matrix()                                                                //destructor on matrix
     {

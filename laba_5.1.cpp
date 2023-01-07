@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <string>
-#include <cmath>
+#include <math.h>
 #include <C:\Users\kolobok\Desktop\programming\laba_5.1\laba_5.1\Matrix.h>
 using namespace std;
 
@@ -79,9 +79,9 @@ using namespace std;
   {
       for (int i = 0; i < this->size; i++)
         {
-            int d;
-            cout << "int element " << i + 1 << " of matrix" << " \n";               cin >> d;
-            this->mas[i] = d;
+           // int d;
+            cout << "int element " << i + 1 << " of matrix" << " \n";               //cin >> d;
+            cin>>this->mas[i];
         }
   } 
 
@@ -117,9 +117,35 @@ using namespace std;
       }
   }
 
-  void matrix::fouti()                     //function for cout matrix
+  void matrix::fini(int n)
+  {
+      row = n;
+      col = n;
+      size = (n * n);
+      if (mas != nullptr)
+      {
+          delete[]mas;
+      }
+      
+      mas = new double[size];
+
+      for (int i = 0; i < size; i++)
+      {
+          cout << "int element " << i + 1 << " of matrix" << " \n";
+          cin >> mas[i];
+      }
+  }
+
+  double matrix::get_elem(int i, int j) const
+  {
+      if (i == j) return mas[row + i];
+      else if (i == j + 1) return mas[row * 2 + i];
+      else if (i + 1 == j) return mas[i];
+      else return 0;
+  }
+
+  void matrix::fouti() const                                                    //function for cout matrix
   { 
-     
       /*                                                            //liney variant
           for (int i = 0; i < this->size; i++)
           {
@@ -127,7 +153,7 @@ using namespace std;
           }  
           cout << endl;
       
-      cout << endl;*/
+      cout << endl;
 
       int k = 0;
       for (int i = 0; i < this->size; i++)
@@ -140,10 +166,38 @@ using namespace std;
           cout << this->mas[i]<<"\t";
           k++;
       }
-      cout << "\n\n";
+      cout << "\n\n";*/
+
+      if (!(this->col == 2 || this->row == 2))
+      {
+          for (int i = 0; i < row; i++)
+          {
+              for (int j = 0; j < row; j++)
+              {
+                  std::cout << "    " << this->get_elem(i, j) << "\t";
+              }
+              std::cout << "\n";
+          }
+      }
+      else
+      {
+          int k = 0;
+          for (int i = 0; i < (this->row * this->col); i++)
+          {
+              if (k == col)
+              {
+                  cout << endl;
+                  k = 0;
+              }
+              cout << this->mas[i] << "\t";
+              k++;
+          }
+      }
+
+      cout << "\n\n\n";
   }                   
 
-  void matrix::funch()                                          //function for umnozhenie matrix on number
+  void matrix::funch()                                                         //function for umnozhenie matrix on number
     {
         cout << "int number for umnozhenie" << endl;
         int d;                                                 cin >> d;
@@ -152,8 +206,25 @@ using namespace std;
 
             this->mas[i] = (mas[i] * d);
         }
-
     }
+
+  matrix matrix::funch(double num)                                          //function for umnozhenie matrix on number '2'
+  {
+      matrix a(this->col, this->row);
+
+      for (int j = 0; j < this->size; j++)
+      {
+          a.mas[j] = this->mas[j];
+      }
+
+      for (int i = 0; i < this->size; i++)
+      {
+
+          a.mas[i] *= num;
+      }
+
+      return a; 
+  }
 
   void matrix::func_sum_mat(matrix& f)                                                        //function for sum matrix on matrix
     {
@@ -296,3 +367,112 @@ using namespace std;
         }
 
     }
+
+ void matrix::operator-() 
+ {
+      return *this * (-1.0);
+ }
+
+  void matrix::operator*(double num) 
+  {
+      for (int i = 0; i < this->size; i++)
+      {
+          this->mas[i] *= num;
+      }
+  }
+
+  void matrix:: operator + (const matrix& matr1) 
+  {
+      if (this->col == matr1.col && this->row == matr1.row)
+      {
+          matrix rezult(this->col, this->row);
+           
+          for (int i = 0; i < rezult.size; i++)
+          {
+              rezult.mas[i] += (this->mas[i] + matr1.mas[i]);
+          }
+
+          rezult.fouti();
+
+      }
+      else
+      {
+          cout << "errrrrror\n";
+      }
+  }
+
+  void matrix:: operator - (const matrix& matr1) 
+  {
+      if (this->col == matr1.col && this->row == matr1.row)
+      {
+          matrix rezult_1(this->col, this->row);
+
+          for (int i = 0; i < rezult_1.size; i++)
+          {
+              rezult_1.mas[i] += (this->mas[i] - matr1.mas[i]);
+          }
+
+          rezult_1.fouti();
+
+      }
+      else
+      {
+          cout << "errrrrror\n";
+      }
+  }
+
+  void matrix::operator * (const matrix& matr1) 
+  {
+      if (this->col == matr1.col && this->row == matr1.row)
+      {
+          matrix rezult_2(this->col, this->row);
+
+          for (int i = 0; i < rezult_2.size; i++)
+          {
+              rezult_2.mas[i] += (this->mas[i] * matr1.mas[i]);
+          }
+
+          rezult_2.fouti();
+
+      }
+      else
+      {
+          cout << "errrrrror\n";
+      }
+  }
+
+  void matrix::operator += (const matrix& matr2) 
+  {
+      for (int i = 0; i < this->size; i++)
+      {
+          this->mas[i] += matr2.mas[i];
+      }
+  }
+
+  void matrix::operator -= (const matrix& matr2) 
+  {
+      for (int i = 0; i < this->size; i++)
+      {
+          this->mas[i] -= matr2.mas[i];
+      }
+  }
+
+  std::ostream& operator << (ostream& in, matrix& matr) 
+  {
+      for (int i = 0; i < matr.row; i++) {
+          for (int j = 0; j < matr.row; j++) {
+              in <<"    "<<matr.get_elem(i, j) << "\t";
+          }
+          in << '\n';
+      }
+      return in;
+  }
+
+  std::istream& operator >> (istream& in, matrix& matr) 
+  {
+      int size;
+      size = matr.col;
+     
+      matr.fini(size);
+      return in;
+  }

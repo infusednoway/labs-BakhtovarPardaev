@@ -5,16 +5,49 @@ using namespace std;
 
 int main()
 {
-    cout << "vvedite col and rows for matrix" << endl;
+   /* cout << "vvedite col and rows for matrix" << endl;
     int c, v;
-    cin >> c >> v;
+    cin >> c >> v;*/
 
     double* add;
     add = new double[9] {2,2,2,2,3,4,5,6,1};
 
+    
         matrix d;
+        matrix w;
+
+        d.fini();
+        cout << d;
+
+        /*w.fini();
+        w.fouti();
+       
+      
+       
+        -d; 
+        d.fouti();
+        -w;
+        w.fouti();
+        w * 10;
+        w.fouti();
+        w += d;
+        w.fouti();
+        w + d;
+        w * d;
+        w - d;
+        w -= d;
+        w.fouti();
+*/
+
+       
+       
+
+       
         
-        matrix e(c, v, add);
+       
+     
+        
+       /* matrix e(c, v, add);
 
         matrix a(c, v);
         a.fini();
@@ -50,7 +83,7 @@ int main()
           cout << endl;
           cout<<"opredel="<<a.func_det_matrix();
           cout << "\n\n\n";
-    
+    */
 
 
 
