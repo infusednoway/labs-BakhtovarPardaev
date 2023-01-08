@@ -1,92 +1,61 @@
 #include <iostream>
-#include <string>
-#include <C:\Users\kolobok\Desktop\programming\laba_5.1\laba_5.1\Matrix.h>
+
+#include "C:\Users\kolobok\Desktop\programming\Project1\Project1\Position.h"
+#include "C:\Users\kolobok\Desktop\programming\Project1\Project1\Krug.h"
+#include "C:\Users\kolobok\Desktop\programming\Project1\Project1\S.h"
+#include "C:\Users\kolobok\Desktop\programming\Project1\Project1\S_kruga.h"
 using namespace std;
 
 int main()
 {
-   /* cout << "vvedite col and rows for matrix" << endl;
-    int c, v;
-    cin >> c >> v;*/
-
-    double* add;
-    add = new double[9] {2,2,2,2,3,4,5,6,1};
-
-    
-        matrix d;
-        matrix w;
-
-        d.fini();
-        cout << d;
-
-        /*w.fini();
-        w.fouti();
-       
-      
-       
-        -d; 
-        d.fouti();
-        -w;
-        w.fouti();
-        w * 10;
-        w.fouti();
-        w += d;
-        w.fouti();
-        w + d;
-        w * d;
-        w - d;
-        w -= d;
-        w.fouti();
-*/
-
-       
-       
-
-       
-        
-       
-     
-        
-       /* matrix e(c, v, add);
-
-        matrix a(c, v);
-        a.fini();
-          cout << "\n";
-
-        a.fouti();
-          cout << "\n";
-
-        matrix b(c, v);
-        b.fini();
-        b.fouti();
-          cout<<"\n";
-
-        a.func_umn_mat(b);
-        a.fouti();
-        a.funch();
-        a.fouti();
-        a.func_sum_mat(b);
-        a.fouti();
-        a.func_umn_mat(b);                     
-        a.fouti();     
-          cout << "\n";
-          cout<<"sled="<<a.func_sled_mat(a);
-          cout << endl;
-
-        a.func_get_elem(2, 3);  
-          cout << endl;
-
-        a.func_get_col();   
-          cout << endl;
-
-        a.func_get_row();   
-          cout << endl;
-          cout<<"opredel="<<a.func_det_matrix();
-          cout << "\n\n\n";
-    */
-
-
-
-
-
+    setlocale(LC_ALL, "Russian");
+    int choise;
+    double x, y, side, rad;
+    int a = 0;
+    while (a == 0)
+    {
+        std::cout << "„то вы хотите выполнить?" "\n" << "1. ¬вод позиции" "\n" << "2. ¬вод круга пользователем" "\n" << "3. ¬вод радиуса окружности" "\n" << "4. ¬вод квадрата пользователем" "\n" << "5. ¬вод стороны квадрата" "\n" "6. ¬вод окружности в квадрате по радиусу" "\n" "7. ¬вод окружности в квадрате по стороне квадрата" "\n" "8. ¬ыход" "\n";
+        cin >> choise;
+        if (choise == 1) {
+            cout << "¬ведите x и y "; cin >> x >> y;
+            Position a(x, y);
+            a.out();
+        }
+        if (choise == 2) {
+            cout << "¬ведите координаты центра и радиус "; cin >> x >> y >> rad;
+            Krug a(x, y, rad);
+            a.out();
+        }
+        if (choise == 3) {
+            cout << "¬ведите радиус "; cin >> rad;
+            Krug a(rad);
+            a.out();
+        }
+        if (choise == 4) {
+            cout << "¬ведите координаты центра и сторону "; cin >> x >> y >> side;
+            S a(x, y, side);
+            a.out();
+        }
+        if (choise == 5) {
+            cout << "¬ведите сторону "; cin >> side;
+            S a(side);
+            a.out();
+        }
+        if (choise == 6) {
+            cout << "¬ведите координаты центра и радиус "; cin >> x >> y >> rad;
+            S_kruga a(x, y, rad);
+            a.Krug::out();
+            a.Krug::out();
+        }
+        if (choise == 7) {
+            cout << "¬ведите сторону "; cin >> side;
+            S_kruga a(side);
+            a.Krug::out();
+            a.S::out();
+        }
+        if (choise == 8) {
+            a++;
+        }
+    }
+    return 0;
 }
