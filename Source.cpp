@@ -10,10 +10,10 @@ int main()
 {
 	Game_Pardaev game1(3);
 
-	game1.Start();
+	
+	string as = "bakha";
 
-
-
+	cout<<as.size()<<endl;
 
 
 

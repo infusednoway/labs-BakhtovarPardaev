@@ -17,5 +17,6 @@ public:
     bool hasAdviser;
     int militaryRegister;
     int victoryPoints;
-    std::vector<string> buildings;
+    vector<string> buildings;
+    
 };
